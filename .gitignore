@@ -4,3 +4,6 @@ obj
 *.user
 
 .vs
+
+#NuGetÉú³ÉµÄ
+packages
