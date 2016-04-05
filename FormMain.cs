@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using log4net;
+using log4net.Appender;
+using log4net.Repository.Hierarchy;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace WindowsFormsApplication1
@@ -9,7 +13,14 @@ namespace WindowsFormsApplication1
         public FormMain()
         {
             InitializeComponent();
+			InitLog();
         }
+
+	    private static void InitLog()
+	    {
+			LogHelper.Init("app.config");
+	    }
+
 
 	    private void Form1_Load(object sender, EventArgs e)
 	    {
@@ -59,6 +70,17 @@ namespace WindowsFormsApplication1
 		    systemMdiToolStripMenuItem.Checked = (newDocumentStyle == DocumentStyle.SystemMdi);
 
 	    }
+
+		private void toolStripButtonLog_Click(object sender, EventArgs e)
+		{
+			var rootAppender = ((Hierarchy)LogManager.GetRepository())
+										 .Root.Appenders.OfType<FileAppender>()
+										 .FirstOrDefault();
+
+			string filename = rootAppender != null ? rootAppender.File : string.Empty;
+
+			MessageBox.Show(filename);
+		}
 
 		//  private FormChild CreateChild()
 		//  {

@@ -26,13 +26,16 @@ namespace WindowsFormsApplication1
             Exception ex = e.ExceptionObject as Exception;
             if (ex != null)
             {
-                MessageBox.Show(ex.Message);
+				LogHelper.WriteLog(typeof(Program), ex);
+				MessageBox.Show(ex.Message);
             }
         }
+		
 
         static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            MessageBox.Show(e.Exception.Message);
+		{
+			LogHelper.WriteLog(typeof(Program), e.Exception);
+			MessageBox.Show(e.Exception.Message);
         }
     }
 }
