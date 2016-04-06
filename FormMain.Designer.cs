@@ -52,10 +52,10 @@
 			this.dockingSdiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.systemMdiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButtonLog = new System.Windows.Forms.ToolStripButton();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-			this.toolStripButtonLog = new System.Windows.Forms.ToolStripButton();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -121,7 +121,7 @@
 			// toolStrip1
 			// 
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.toolStripButtonNew,
             this.toolStripButtonLog});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 25);
 			this.toolStrip1.Name = "toolStrip1";
@@ -129,15 +129,25 @@
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
-			// toolStripButton1
+			// toolStripButtonNew
 			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(36, 22);
-			this.toolStripButton1.Text = "测试";
-			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+			this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNew.Image")));
+			this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonNew.Name = "toolStripButtonNew";
+			this.toolStripButtonNew.Size = new System.Drawing.Size(36, 22);
+			this.toolStripButtonNew.Text = "新建";
+			this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
+			// 
+			// toolStripButtonLog
+			// 
+			this.toolStripButtonLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonLog.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLog.Image")));
+			this.toolStripButtonLog.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonLog.Name = "toolStripButtonLog";
+			this.toolStripButtonLog.Size = new System.Drawing.Size(36, 22);
+			this.toolStripButtonLog.Text = "日志";
+			this.toolStripButtonLog.Click += new System.EventHandler(this.toolStripButtonLog_Click);
 			// 
 			// statusStrip1
 			// 
@@ -202,16 +212,6 @@
 			this.dockPanel1.Skin = dockPanelSkin1;
 			this.dockPanel1.TabIndex = 3;
 			// 
-			// toolStripButtonLog
-			// 
-			this.toolStripButtonLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripButtonLog.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLog.Image")));
-			this.toolStripButtonLog.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonLog.Name = "toolStripButtonLog";
-			this.toolStripButtonLog.Size = new System.Drawing.Size(36, 22);
-			this.toolStripButtonLog.Text = "日志";
-			this.toolStripButtonLog.Click += new System.EventHandler(this.toolStripButtonLog_Click);
-			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -242,7 +242,7 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton toolStripButtonNew;
 		private System.Windows.Forms.ToolStripMenuItem documentStyleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockingMdiToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockingWindowToolStripMenuItem;
