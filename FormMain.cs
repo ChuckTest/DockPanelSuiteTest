@@ -29,15 +29,15 @@ namespace WindowsFormsApplication1
 
 		private void toolStripButtonNew_Click(object sender, EventArgs e)
 		{
-			FormChild tempForm2 = new FormChild();
+			FormChild formChild = CreateChild();
 			if(dockPanel1.DocumentStyle == DocumentStyle.SystemMdi)
 			{
-				tempForm2.MdiParent = this;
-				tempForm2.Show();
+				formChild.MdiParent = this;
+				formChild.Show();
 			}
 			else
 			{
-				tempForm2.Show(dockPanel1);
+				formChild.Show(dockPanel1);
 			}
 		}
 
@@ -112,28 +112,39 @@ namespace WindowsFormsApplication1
 				}
 			}
 		}
-		//  private FormChild CreateChild()
-		//  {
-		//   FormChild tempForm2 = new FormChild();
-		//   tempForm2.MdiParent = this;
-		//   int count = 1;
-		//   string text = $"Form{count}";
-		//while(ChildExist(text))
-		//   {
-		//    count++;
-		//    text = $"Form{count}";
-		//   }
-		//   tempForm2.Text = text;
-		//  }
 
-		//  private bool ChildExist(string text)
-		//  {
-		//   bool flag = false;
-		//   foreach(var item in dockPanel1.Contents)
-		//   {
-		//   item.DockHandler.TabText
-		//   }
-		//   return flag;
-		//  }
+		private FormChild CreateChild()
+		{
+			FormChild formChild = new FormChild();
+			int count = 1;
+			string text = $"Form{count}";
+			while(ChildExist(text))
+			{
+				count++;
+				text = $"Form{count}";
+			}
+			formChild.Text = text;
+			return formChild;
+		}
+
+		private bool ChildExist(string text)
+		{
+			bool flag = false;
+			if(dockPanel1.DocumentStyle == DocumentStyle.SystemMdi)
+			{
+				if(MdiChildren.Any(form => form.Text.Equals(text)))
+				{
+					flag = true;
+				}
+			}
+			else
+			{
+				if(dockPanel1.Contents.Any(item => item.DockHandler.TabText.Equals(text)))
+				{
+					flag = true;
+				}
+			}
+			return flag;
+		}
 	}
 }
