@@ -69,6 +69,12 @@ namespace WindowsFormsApplication1
 			{
 				return;
 			}
+
+			if(olDocumentStyle == DocumentStyle.SystemMdi || newDocumentStyle == DocumentStyle.SystemMdi)
+			{
+				CloseAllDocuments();
+			}
+
 			dockPanel1.DocumentStyle = newDocumentStyle;
 
 			dockingMdiToolStripMenuItem.Checked = (newDocumentStyle == DocumentStyle.DockingMdi);
@@ -89,6 +95,23 @@ namespace WindowsFormsApplication1
 			MessageBox.Show(filename);
 		}
 
+		private void CloseAllDocuments()
+		{
+			if(dockPanel1.DocumentStyle == DocumentStyle.SystemMdi)
+			{
+				foreach(Form form in MdiChildren)
+				{
+					form.Close();
+				}
+			}
+			else
+			{
+				foreach(IDockContent content in dockPanel1.DocumentsToArray())
+				{
+					content.DockHandler.Close();
+				}
+			}
+		}
 		//  private FormChild CreateChild()
 		//  {
 		//   FormChild tempForm2 = new FormChild();
